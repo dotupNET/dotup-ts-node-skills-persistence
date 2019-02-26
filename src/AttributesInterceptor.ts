@@ -9,11 +9,9 @@ import { IRequestAttributes } from 'dotup-ts-node-skills';
 export class LoadAttributesInterceptor implements RequestInterceptor {
 
   async process(handlerInput: HandlerInput): Promise<void> {
-    if (handlerInput.requestEnvelope.session.new) {
-      const r = <IRequestAttributes>handlerInput.attributesManager.getRequestAttributes();
-      const fromDb = await handlerInput.attributesManager.getPersistentAttributes();
-      r.persistentAttributes = fromDb === undefined ? {} : fromDb;
-    }
+    const r = <IRequestAttributes>handlerInput.attributesManager.getRequestAttributes();
+    const fromDb = await handlerInput.attributesManager.getPersistentAttributes();
+    r.persistentAttributes = fromDb === undefined ? {} : fromDb;
   }
 
 }
