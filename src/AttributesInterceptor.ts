@@ -44,7 +44,7 @@ export class SaveAttributesInterceptor implements ResponseInterceptor<HandlerInp
           input.attributesManager.setPersistentAttributes({ [item]: r.persistentAttributes[item] });
         });
       await input.attributesManager.savePersistentAttributes();
-      this.logger.Debug('Persistent attributes saves', 'process');
+      this.logger.Debug('Persistent attributes saved', 'process');
     }
   }
 
