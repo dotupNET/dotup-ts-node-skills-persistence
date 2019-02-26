@@ -86,19 +86,22 @@
 					<a name="getdynamodbadapter" class="tsd-anchor"></a>
 					<h3>get<wbr>Dynamo<wbr>DbAdapter</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Dynamo<wbr>DbAdapter<span class="tsd-signature-symbol">(</span>tableName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PersistenceAdapter</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Dynamo<wbr>DbAdapter<span class="tsd-signature-symbol">(</span>tableName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, createTable<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PersistenceAdapter</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-node-skills-persistence/blob/f801f09/src/PersistenceAdapterFactory.ts#L31">PersistenceAdapterFactory.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/dotupNET/dotup-ts-node-skills-persistence/blob/f801f09/src/PersistenceAdapterFactory.ts#L35">PersistenceAdapterFactory.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tableName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> createTable: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">PersistenceAdapter</span></h4>
@@ -109,7 +112,7 @@
 					<a name="getlocaldynamodbadapter" class="tsd-anchor"></a>
 					<h3>get<wbr>Local<wbr>Dynamo<wbr>DbAdapter</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Local<wbr>Dynamo<wbr>DbAdapter<span class="tsd-signature-symbol">(</span>tableName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, settings<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">DynamoDB.Types.ClientConfiguration</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PersistenceAdapter</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Local<wbr>Dynamo<wbr>DbAdapter<span class="tsd-signature-symbol">(</span>tableName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, createTable<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, settings<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">DynamoDB.Types.ClientConfiguration</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PersistenceAdapter</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -122,6 +125,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>tableName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> createTable: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> settings: <span class="tsd-signature-type">DynamoDB.Types.ClientConfiguration</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
