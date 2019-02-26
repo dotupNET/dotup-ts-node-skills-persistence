@@ -1,14 +1,18 @@
 import { PersistenceAdapter } from 'ask-sdk-core';
 import { DynamoDbPersistenceAdapter } from 'ask-sdk-dynamodb-persistence-adapter';
 import { DynamoDB } from 'aws-sdk';
+import { LoggerFactory } from 'dotup-ts-logger';
 
 export namespace PersistenceAdapterFactory {
+
+  const logger = LoggerFactory.createLogger('PersistenceAdapterFactory');
 
   export function getLocalDynamoDbAdapter(
     tableName: string,
     createTable: boolean = true,
     settings: DynamoDB.Types.ClientConfiguration = {}
   ): PersistenceAdapter {
+
     if (settings.apiVersion === undefined) {
       settings.apiVersion = 'latest';
     }
@@ -25,6 +29,8 @@ export namespace PersistenceAdapterFactory {
       settings.region = 'local';
     }
 
+    logger.CallInfo('getLocalDynamoDbAdapter');
+
     return new DynamoDbPersistenceAdapter({
       tableName: tableName,
       createTable: createTable,
@@ -33,6 +39,8 @@ export namespace PersistenceAdapterFactory {
   }
 
   export function getDynamoDbAdapter(tableName: string, createTable: boolean = false): PersistenceAdapter {
+
+    logger.CallInfo('getLocalDynamoDbAdapter');
 
     return new DynamoDbPersistenceAdapter({
       tableName: tableName,
