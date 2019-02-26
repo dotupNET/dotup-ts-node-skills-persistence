@@ -35,7 +35,7 @@
         "${file}"
       ],
       "group": "test",
-      "problemMatcher": "$jasmine"
+      "problemMatcher": "$tslint5"
     },
     {
       "type": "grunt",
@@ -53,51 +53,17 @@
     },
     {
       "type": "grunt",
-      "task": "lambda-deploy",
-      "problemMatcher": [
-        "$tsc"
-      ]
-    },
-    {
-      "type": "grunt",
-      "task": "run",
-      "problemMatcher": []
-    },
-    {
-      "type": "grunt",
-      "task": "skill-build",
+      "task": "release",
       "problemMatcher": [
         "$tslint5"
       ]
     },
     {
       "type": "grunt",
-      "task": "skill-pre-publish",
-      "problemMatcher": [
-        "$tslint5"
-      ]
-    },
-    {
-      "type": "grunt",
-      "task": "skill-publish",
+      "task": "publish",
       "problemMatcher": [
         "$tsc"
       ]
-    },
-    {
-      "type": "grunt",
-      "task": "lambda-pack",
-      "problemMatcher": []
-    },
-    {
-      "type": "grunt",
-      "task": "skill-manifest-generate-prod",
-      "problemMatcher": []
-    },
-    {
-      "type": "grunt",
-      "task": "skill-manifest-publish-dev",
-      "problemMatcher": []
     }
   ]
 }

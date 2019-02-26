@@ -1,31 +1,42 @@
 import { PersistenceAdapter } from 'ask-sdk-core';
-import { DynamoDB } from 'aws-sdk';
 import { DynamoDbPersistenceAdapter } from 'ask-sdk-dynamodb-persistence-adapter';
+import { DynamoDB } from 'aws-sdk';
 
 export namespace PersistenceAdapterFactory {
 
-  export function getLocalDynamoDbAdapter(tableName: string, settings: DynamoDB.Types.ClientConfiguration): PersistenceAdapter {
-    settings.apiVersion = settings.apiVersion ? settings.apiVersion : 'latest';
-    settings.credentials = settings.credentials ? settings.credentials : { accessKeyId: 'local', secretAccessKey: 'local' };
-    settings.endpoint = settings.endpoint ? settings.endpoint : 'http://localhost:8000';
-    settings.region = settings.region ? settings.region : 'local';
+  export function getLocalDynamoDbAdapter(
+    tableName: string,
+    createTable: boolean = true,
+    settings: DynamoDB.Types.ClientConfiguration = {}
+  ): PersistenceAdapter {
+    if (settings.apiVersion === undefined) {
+      settings.apiVersion = 'latest';
+    }
 
-    const persistenceAdapter = new DynamoDbPersistenceAdapter({
+    if (settings.credentials === undefined) {
+      settings.credentials = { accessKeyId: 'local', secretAccessKey: 'local' };
+    }
+
+    if (settings.endpoint === undefined) {
+      settings.endpoint = 'http://localhost:8000';
+    }
+
+    if (settings.region === undefined) {
+      settings.region = 'local';
+    }
+
+    return new DynamoDbPersistenceAdapter({
       tableName: tableName,
-      createTable: false,
+      createTable: createTable,
       dynamoDBClient: new DynamoDB(settings)
     });
-
-    return persistenceAdapter;
   }
 
-  export function getDynamoDbAdapter(tableName: string): PersistenceAdapter {
+  export function getDynamoDbAdapter(tableName: string, createTable: boolean = false): PersistenceAdapter {
 
-    const persistenceAdapter = new DynamoDbPersistenceAdapter({
+    return new DynamoDbPersistenceAdapter({
       tableName: tableName,
-      createTable: false
+      createTable: createTable
     });
-
-    return persistenceAdapter;
   }
 }

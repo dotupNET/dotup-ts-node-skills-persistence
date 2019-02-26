@@ -1,17 +1,19 @@
 {
   "name": "dotup-ts-node-skills-persistence",
-  "version": "0.0.1",
+  "version": "0.0.8",
   "description": "Persistence for node skills",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "release": "npm run clean-build && npm run test && git push && npm run gh-pages",
+    "release": "npm run clean-build && npm run test && git push && npm run gh-pages && npm publish",
     "clean-dist": "rimraf dist",
     "clean-build": "rimraf dist && tsc",
     "test": "jasmine-ts",
     "docs": "typedoc --mode file --out docs src --exclude \"**/*+(index|.spec|.e2e).ts\"",
-    "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs"
+    "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs",
+    "postversion": "git push && git push --tags",
+    "npm-publish": "npm publish"
   },
   "repository": {
     "type": "git",
@@ -35,16 +37,17 @@
     "ask-sdk": "^2.4.0",
     "ask-sdk-dynamodb-persistence-adapter": "^2.4.0",
     "ask-sdk-core": "^2.4.0",
+    "ask-sdk-runtime": "^2.4.0",
     "ask-sdk-model": "^1.11.2"
   },
   "peerDependencies": {
-    "dotup-ts-node-skills": "^0.1.4"
+    "dotup-ts-node-skills": "^0.1.6"
   },
   "devDependencies": {
+    "dotup-ts-node-skills": "^0.1.6",
     "@types/express": "^4.16.1",
     "@types/i18next-sprintf-postprocessor": "^0.0.29",
     "@types/jasmine": "^3.3.9",
-    "dotup-ts-node-skills": "^0.1.4",
     "gh-pages": "^2.0.1",
     "grunt": "^1.0.3",
     "grunt-concurrent": "^2.3.1",

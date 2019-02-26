@@ -10,7 +10,8 @@ export class LoadAttributesInterceptor implements RequestInterceptor {
 
   async process(handlerInput: HandlerInput): Promise<void> {
     const r = <IRequestAttributes>handlerInput.attributesManager.getRequestAttributes();
-    r.persistentAttributes = await handlerInput.attributesManager.getPersistentAttributes();
+    const fromDb = await handlerInput.attributesManager.getPersistentAttributes();
+    r.persistentAttributes = fromDb === undefined ? {} : fromDb;
   }
 
 }
@@ -26,15 +27,13 @@ export class SaveAttributesInterceptor implements ResponseInterceptor<HandlerInp
     // Presistent session attributes
     const r = <IRequestAttributes>input.attributesManager.getRequestAttributes();
 
-    if (r.persistentAttributes === undefined) {
-      return;
+    if (r.savePersistentAttributes && r.persistentAttributes !== undefined) {
+      Object.keys(r.persistentAttributes)
+        .forEach(item => {
+          input.attributesManager.setPersistentAttributes({ [item]: r.persistentAttributes[item] });
+        });
+      await input.attributesManager.savePersistentAttributes();
     }
-
-    Object.keys(r.persistentAttributes)
-      .forEach(item => {
-        input.attributesManager.setPersistentAttributes({ [item]: r.persistentAttributes[item] });
-      });
-    await input.attributesManager.savePersistentAttributes();
   }
 
 }
