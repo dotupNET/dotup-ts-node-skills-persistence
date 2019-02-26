@@ -1,0 +1,103 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build typescript",
+      "type": "shell",
+      "command": "tsc",
+      "problemMatcher": "$tsc",
+      "args": [
+        "-p",
+        "\"${workspaceFolder}/tsconfig.json\""
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": "cleanup"
+    },
+    {
+      "label": "cleanup",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "clean-dist"
+      ]
+    },
+    {
+      "label": "test file",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "test",
+        "${file}"
+      ],
+      "group": "test",
+      "problemMatcher": "$jasmine"
+    },
+    {
+      "type": "grunt",
+      "task": "tslint",
+      "problemMatcher": [
+        "$tslint5"
+      ]
+    },
+    {
+      "type": "npm",
+      "script": "release",
+      "problemMatcher": [
+        "$tsc"
+      ]
+    },
+    {
+      "type": "grunt",
+      "task": "lambda-deploy",
+      "problemMatcher": [
+        "$tsc"
+      ]
+    },
+    {
+      "type": "grunt",
+      "task": "run",
+      "problemMatcher": []
+    },
+    {
+      "type": "grunt",
+      "task": "skill-build",
+      "problemMatcher": [
+        "$tslint5"
+      ]
+    },
+    {
+      "type": "grunt",
+      "task": "skill-pre-publish",
+      "problemMatcher": [
+        "$tslint5"
+      ]
+    },
+    {
+      "type": "grunt",
+      "task": "skill-publish",
+      "problemMatcher": [
+        "$tsc"
+      ]
+    },
+    {
+      "type": "grunt",
+      "task": "lambda-pack",
+      "problemMatcher": []
+    },
+    {
+      "type": "grunt",
+      "task": "skill-manifest-generate-prod",
+      "problemMatcher": []
+    },
+    {
+      "type": "grunt",
+      "task": "skill-manifest-publish-dev",
+      "problemMatcher": []
+    }
+  ]
+}
