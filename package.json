@@ -1,6 +1,6 @@
 {
   "name": "dotup-ts-node-skills-persistence",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "description": "Persistence for node skills",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -37,14 +37,14 @@
     "ask-sdk-dynamodb-persistence-adapter": "^2.4.0"
   },
   "peerDependencies": {
-    "dotup-ts-node-skills": "^0.1.6",
+    "dotup-ts-node-skills": "^0.1.15",
     "aws-sdk": "^2.409.0",
     "ask-sdk-core": "^2.4.0",
     "ask-sdk-runtime": "^2.4.0",
     "ask-sdk-model": "^1.11.2"
   },
   "devDependencies": {
-    "dotup-ts-node-skills": "^0.1.6",
+    "dotup-ts-node-skills": "^0.1.15",
     "aws-sdk": "^2.409.0",
     "ask-sdk-dynamodb-persistence-adapter": "^2.4.0",
     "ask-sdk-core": "^2.4.0",
