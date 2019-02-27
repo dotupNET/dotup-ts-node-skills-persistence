@@ -40,7 +40,7 @@ export namespace PersistenceAdapterFactory {
 
   export function getDynamoDbAdapter(tableName: string, createTable: boolean = false): PersistenceAdapter {
 
-    logger.CallInfo('getLocalDynamoDbAdapter');
+    logger.CallInfo('getDynamoDbAdapter');
 
     return new DynamoDbPersistenceAdapter({
       tableName: tableName,
