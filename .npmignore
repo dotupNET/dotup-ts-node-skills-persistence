@@ -22,3 +22,9 @@ tslint.json
 gruntfile.js
 skill.json
 skill.*.json
+
+# GulpGenerator related:
+# Gulp:
+/tools/
+./gulpfile.config.js
+./gulpfile.js

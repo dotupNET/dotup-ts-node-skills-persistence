@@ -38,31 +38,10 @@
       "problemMatcher": "$tslint5"
     },
     {
-      "type": "grunt",
-      "task": "tslint",
+      "type": "gulp",
+      "task": "project-build",
       "problemMatcher": [
-        "$tslint5"
-      ]
-    },
-    {
-      "type": "npm",
-      "script": "release",
-      "problemMatcher": [
-        "$tsc"
-      ]
-    },
-    {
-      "type": "grunt",
-      "task": "release",
-      "problemMatcher": [
-        "$tslint5"
-      ]
-    },
-    {
-      "type": "grunt",
-      "task": "publish",
-      "problemMatcher": [
-        "$tsc"
+        "$gulp-tsc"
       ]
     }
   ]
