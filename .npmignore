@@ -26,5 +26,6 @@ skill.*.json
 # GulpGenerator related:
 # Gulp:
 /tools/
-./gulpfile.config.js
-./gulpfile.js
+/gulpfile.config.js
+/gulpfile.js
+.yo-rc.json
